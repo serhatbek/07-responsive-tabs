@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -44,6 +44,10 @@ main {
   flex-direction: column;
   justify-content: center;
   text-align: center;
+
+  &__subtitle {
+    margin-bottom: 2rem;
+  }
 
   &__content {
     display: flex;

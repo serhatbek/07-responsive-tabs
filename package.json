@@ -4,8 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "parcel src/index.html --open",
-    "build": "parcel build src/index.html"
+    "build": "parcel build src/index.html --no-source-maps --public-url ./"
   },
+  "browserslist": ">0.5%, last 2 versions, not dead",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/serhatbek/07-responsive-tabs.git"
@@ -19,6 +20,20 @@
   "homepage": "https://github.com/serhatbek/07-responsive-tabs#readme",
   "devDependencies": {
     "@parcel/transformer-sass": "^2.3.2",
-    "parcel": "^2.3.2"
+    "autoprefixer": "^10.4.2",
+    "parcel": "^2.3.2",
+    "postcss": "^8.4.7"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {
+        "overrideBrowserslist": [
+          ">1%",
+          "last 4 versions",
+          "Firefox ESR",
+          "ie >= 9"
+        ]
+      }
+    }
   }
 }
