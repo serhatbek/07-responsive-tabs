@@ -15,6 +15,21 @@ html {
 body {
   font-size: 1.6rem;
   font-family: 'Montserrat', sans-serif;
+  line-height: 1.5;
+}
+
+.container {
+  max-width: 120rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1.6rem;
+}
+
+@mixin flexBox($direction, $justify, $align) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
 }
 
 img {
@@ -25,41 +40,94 @@ img {
 main {
   width: 100%;
   height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.container {
-  max-width: 120rem;
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 1.6rem;
+  background-color: #1f201b;
+  color: aliceblue;
+  @include flexBox(row, center, center);
 }
 
 // underwater section
 
 .underwater {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
+  @include flexBox(column, center, center);
+
+  &__title {
+    font-size: 4rem;
+  }
 
   &__subtitle {
+    font-size: 3rem;
     margin-bottom: 2rem;
   }
 
   &__content {
-    display: flex;
+    @include flexBox(row, space-between, center);
+
+    padding: 0 1.6rem;
   }
 
   &__img {
-    max-width: 20rem;
     width: 50%;
     background-color: #33a0ff;
+
+    img {
+      border-radius: 1rem;
+    }
   }
 
   &__tabs {
-    width: 50%;
+    width: 100%;
+    background-color: #131311;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+
+    &-header {
+      display: flex;
+      margin-bottom: 2rem;
+    }
+
+    &-btn {
+      width: 33.3%;
+      font-size: 1.8rem;
+      letter-spacing: 0.3rem;
+      font-weight: 700;
+      color: antiquewhite;
+      padding: 1.6rem 0;
+      background-color: #33a0ff;
+      border: none;
+
+      &:first-child {
+        border-top-left-radius: 1rem;
+      }
+
+      &:last-child {
+        border-top-right-radius: 1rem;
+      }
+
+      &:nth-child(2) {
+        margin: 0 0.4rem;
+      }
+    }
+
+    &-img,
+    &-info {
+      width: 45%;
+    }
+
+    &-content {
+      display: none;
+      padding: 1.6rem;
+      text-align: center;
+      img {
+        border-radius: 1rem;
+      }
+
+      h4 {
+        margin-bottom: 2rem;
+      }
+    }
+
+    &-content.js-tab-active {
+      @include flexBox(row, space-around, center);
+    }
   }
 }
